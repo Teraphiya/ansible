@@ -1,0 +1,14 @@
+---
+- name: Установить Docker SDK для Python
+  hosts: app
+  become: yes
+  tasks:
+    - name: Установить pip (если он еще не установлен)
+      apt:
+        name: python3-pip
+        state: present
+        update_cache: yes
+
+    - name: Установить Docker SDK для Python
+      pip:
+        name: docker

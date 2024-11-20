@@ -1,0 +1,36 @@
+---
+- name: Установить Docker на все ноды группы app
+  hosts: app
+  become: yes
+  tasks:
+    - name: Установить зависимости для Docker
+      apt:
+        name:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - software-properties-common
+        state: present
+        update_cache: yes
+
+    - name: Добавить официальный GPG-ключ Docker
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: Добавить репозиторий Docker
+      apt_repository:
+        repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+        state: present
+
+    - name: Установить Docker
+      apt:
+        name: docker-ce
+        state: present
+        update_cache: yes
+
+    - name: Убедиться, что Docker запущен
+      service:
+        name: docker
+        state: started
+        enabled: yes

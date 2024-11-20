@@ -1,0 +1,15 @@
+---
+- name: Клонировать репозиторий Django-приложения
+  hosts: app
+  become: yes
+  tasks:
+    - name: Установить git
+      apt:
+        name: git
+        state: present
+        update_cache: yes
+
+    - name: Клонировать репозиторий
+      git:
+        repo: https://github.com/mdn/django-locallibrary-tutorial.git
+        dest: /home/ubuntu/django-locallibrary

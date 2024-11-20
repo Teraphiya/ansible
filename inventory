@@ -1,0 +1,7 @@
+[app]
+192.168.56.201 ansible_user=vagrant ansible_private_key_file=/home/nilog_wsl/.ssh/vagrant_keys/private_key_srv1
+192.168.56.202 ansible_user=vagrant ansible_private_key_file=/home/nilog_wsl/.ssh/vagrant_keys/private_key_srv2
+192.168.56.203 ansible_user=vagrant ansible_private_key_file=/home/nilog_wsl/.ssh/vagrant_keys/private_key_srv3
+192.168.56.204 ansible_user=vagrant ansible_private_key_file=/home/nilog_wsl/.ssh/vagrant_keys/private_key_srv4
+192.168.56.205 ansible_user=vagrant ansible_private_key_file=/home/nilog_wsl/.ssh/vagrant_keys/private_key_srv5
+
